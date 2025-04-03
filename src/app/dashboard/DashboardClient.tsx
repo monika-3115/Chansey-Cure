@@ -39,7 +39,7 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">📊 Dashboard</h1>
-      <p><span className="font-semibold">Welcome </span>{userEmail} ,</p>
+      <p><span className="font-semibold text-pink-600">Welcome </span>{userEmail} ,</p>
 
       {loading && <p className="text-gray-500">Loading...</p>}
       {error && <p className="text-red-500">{error}</p>}
@@ -48,30 +48,30 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
         <div className="pt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className=" grid grid-cols-1 gap-6">
                 {/* Logged-in Users Card */}
-                <div className=" h-40 bg-white p-6 rounded-xl shadow-md">
-                    <h2 className="text-xl font-semibold">👥 Logged-in Users</h2>
+                <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
+                    <h2 className="text-xl font-semibold text-gray-800">👥 Logged-in Users</h2>
                     <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.loggedInUsers}</p>
                 </div>
-                <div className=" h-40 bg-white p-6 rounded-xl shadow-md">
-                    <h2 className="text-xl font-semibold">💰 Current revenue</h2>
+                <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
+                    <h2 className="text-xl font-semibold text-gray-800">💰 Current revenue</h2>
                     <p className="text-2xl text-center pt-5 font-bold text-pink-600">Rs. 1,25,345</p>
                 </div>
-                <div className=" h-40 bg-white p-6 rounded-xl shadow-md">
-                    <h2 className="text-xl font-semibold">📄 no.of feedbacks</h2>
+                <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
+                    <h2 className="text-xl font-semibold text-gray-800">📄 no.of feedbacks</h2>
                     <p className="text-2xl text-center pt-5 font-bold text-pink-600">3</p>
                 </div>
             </div>
           
 
           {/* Conversations List */}
-          <div className="bg-white p-6 rounded-xl shadow-md col-span-2 w-fit">
-            <h2 className="text-xl font-semibold mb-4">💬 Recent Conversations</h2>
+          <div className="bg-white p-6 rounded-xl shadow-md col-span-2 w-fit hover:shadow-pink-200">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">💬 Recent Conversations</h2>
             <div className="space-y-4 max-h-96 overflow-y-auto">
               {data.conversations.length > 0 ? (
                 data.conversations.map((conv) => (
                   <div key={conv.id} className="p-4 bg-gray-50 rounded-md shadow-sm">
                     <p className="text-sm text-gray-500">{new Date(conv.timestamp).toLocaleString()}</p>
-                    <p className="font-semibold text-gray-800">User: {conv.user_input}</p>
+                    <p className="font-semibold text-pink-600">User: {conv.user_input}</p>
                     <p className="text-gray-700">Bot: {conv.bot_response}</p>
                   </div>
                 ))
@@ -82,8 +82,8 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
           </div>
 
           {/* Placeholder for future statistics */}
-          <div className="bg-white p-6 rounded-xl shadow-md col-span-3">
-            <h2 className="text-xl font-semibold">📈 Statistics</h2>
+          <div className="bg-white p-6 rounded-xl shadow-md col-span-3 hover:shadow-pink-200">
+            <h2 className="text-xl font-semibold text-gray-800">📈 Statistics</h2>
             <p className="text-gray-600">More insights coming soon...</p>
           </div>
         </div>
