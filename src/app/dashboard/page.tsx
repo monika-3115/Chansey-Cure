@@ -88,13 +88,21 @@ export default function Dashboard() {
       {data && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Logged-in Users Card */}
-          <div className="bg-white p-6 rounded-xl shadow-md">
+          <div className=" h-40 bg-white p-6 rounded-xl shadow-md">
             <h2 className="text-xl font-semibold">👥 Logged-in Users</h2>
-            <p className="text-2xl font-bold text-blue-600">{data.loggedInUsers}</p>
+            <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.loggedInUsers}</p>
+          </div>
+          <div className=" h-40 bg-white p-6 rounded-xl shadow-md">
+            <h2 className="text-xl font-semibold">💰 Current revenue</h2>
+            <p className="text-2xl text-center pt-5 font-bold text-pink-600">Rs. 1,25,345</p>
+          </div>
+          <div className=" h-40 bg-white p-6 rounded-xl shadow-md">
+            <h2 className="text-xl font-semibold">📄 no.of feedbacks</h2>
+            <p className="text-2xl text-center pt-5 font-bold text-pink-600">3</p>
           </div>
 
           {/* Conversations List */}
-          <div className="bg-white p-6 rounded-xl shadow-md col-span-2">
+          <div className="bg-white p-6 rounded-xl shadow-md col-span-2 w-fit">
             <h2 className="text-xl font-semibold mb-4">💬 Recent Conversations</h2>
             <div className="space-y-4 max-h-96 overflow-y-auto">
               {data.conversations.length > 0 ? (
