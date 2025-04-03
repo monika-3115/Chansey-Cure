@@ -2,7 +2,6 @@ import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
 import WidthWrapper from "@/components/WidthWrapper";
 import { ArrowRight, Check, Star } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -19,7 +18,7 @@ export default function Home() {
                 Health Issues? <span className="bg-pink-500 px-2 text-white">Chansey</span> Bot is here!
               </h1>
               <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap">
-                Tell your problem to chansey and get instant <span className="font-semibold">medical care</span> of your own.
+                Question chansey and get instant <span className="font-semibold">Answers</span> of your own.
               </p>
 
               <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start">
