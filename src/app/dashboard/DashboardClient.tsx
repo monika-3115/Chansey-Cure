@@ -56,19 +56,15 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
       {data && (
         <div className="pt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="grid grid-cols-1 gap-6">
-            {/* Logged-in Users */}
             <div className="h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
               <h2 className="text-xl font-semibold text-gray-800">👥 Logged-in Users</h2>
               <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.loggedInUsers}</p>
             </div>
-
-            {/* Revenue */}
             <div className="h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
               <h2 className="text-xl font-semibold text-gray-800">💰 Current revenue</h2>
               <p className="text-2xl text-center pt-5 font-bold text-pink-600">Rs. 1,25,345</p>
             </div>
 
-            {/* Feedback count */}
             <div className="h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
               <h2 className="text-xl font-semibold text-gray-800">📄 No. of Feedbacks</h2>
               <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.feedbacks?.length ?? 0}</p>
@@ -111,7 +107,6 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
             </div>
           </div>
 
-          {/* Placeholder */}
           <div className="bg-white p-6 rounded-xl shadow-md col-span-3 hover:shadow-pink-200">
             <h2 className="text-xl font-semibold text-gray-800">📈 Statistics</h2>
             <p className="text-gray-600">More insights coming soon...</p>
