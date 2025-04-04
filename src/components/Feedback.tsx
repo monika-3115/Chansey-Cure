@@ -10,7 +10,6 @@ const Feedback = () => {
     const [isOpen, setIsOpen] = useState(false);
     const formRef = useRef<HTMLDivElement | null>(null);
 
-    // Detect clicks outside the feedback form and close it
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (formRef.current && !formRef.current.contains(event.target as Node)) {
@@ -54,7 +53,7 @@ const Feedback = () => {
 
     return (
         <div>
-            {/* Floating Button */}
+            {/* feedback button */}
             <button
                 onClick={() => setIsOpen(true)}
                 className="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-pink-600 text-white shadow-lg hover:bg-pink-700"
@@ -62,14 +61,12 @@ const Feedback = () => {
                 💬
             </button>
 
-            {/* Sidebar (Feedback Form) */}
             {isOpen && (
                 <div className="fixed inset-0 flex justify-end">
                     <div
                         ref={formRef}
                         className="h-full w-96 bg-white shadow-lg transform transition-transform duration-300 ease-in-out p-6 border-l"
                     >
-                        {/* Close Button */}
                         <button
                             onClick={() => setIsOpen(false)}
                             className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
@@ -80,7 +77,6 @@ const Feedback = () => {
                         <h2 className="text-xl font-bold mb-4">Give Feedback</h2>
 
                         <div className="space-y-4">
-                            {/* Name Input */}
                             <input
                                 type="text"
                                 placeholder="Your Name"
@@ -89,7 +85,6 @@ const Feedback = () => {
                                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
                             />
 
-                            {/* Feedback Textarea */}
                             <textarea
                                 placeholder="Your feedback..."
                                 value={feedback}
@@ -97,7 +92,6 @@ const Feedback = () => {
                                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
                             />
 
-                            {/* Rating System */}
                             <div className="flex items-center space-x-2">
                                 <span className="text-gray-600">Rate:</span>
                                 {[1, 2, 3, 4, 5].map((star) => (
@@ -112,7 +106,6 @@ const Feedback = () => {
                                 ))}
                             </div>
 
-                            {/* Submit Button */}
                             <button
                                 className="w-full px-4 py-2 bg-pink-600 text-white rounded-md hover:bg-pink-700"
                                 onClick={handleSubmit}
