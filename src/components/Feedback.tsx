@@ -56,7 +56,7 @@ const Feedback = () => {
             {/* feedback button */}
             <button
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-pink-600 text-white shadow-lg hover:bg-pink-700"
+                className="fixed bottom-25 right-10 w-12 h-12 flex items-center justify-center rounded-full bg-pink-600 text-white shadow-lg hover:bg-pink-700"
             >
                 💬
             </button>

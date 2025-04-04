@@ -9,9 +9,18 @@ interface Conversation {
   timestamp: string;
 }
 
+interface Feedback {
+  id: number;
+  name: string;
+  feedback: string;
+  rating: number;
+  createdAt: string;
+}
+
 interface DashboardData {
   loggedInUsers: number;
   conversations: Conversation[];
+  feedbacks: Feedback[];
 }
 
 export default function DashboardClient({ userEmail }: { userEmail: string }) {
@@ -46,30 +55,31 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
 
       {data && (
         <div className="pt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className=" grid grid-cols-1 gap-6">
-                {/* Logged-in Users Card */}
-                <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
-                    <h2 className="text-xl font-semibold text-gray-800">👥 Logged-in Users</h2>
-                    <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.loggedInUsers}</p>
-                </div>
-                {/* Current revenue */}
-                <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
-                    <h2 className="text-xl font-semibold text-gray-800">💰 Current revenue</h2>
-                    <p className="text-2xl text-center pt-5 font-bold text-pink-600">Rs. 1,25,345</p>
-                </div>
-                {/* feedbacks */}
-                <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
-                    <h2 className="text-xl font-semibold text-gray-800">📄 no.of feedbacks</h2>
-                    <p className="text-2xl text-center pt-5 font-bold text-pink-600">3</p>
-                </div>
+          <div className="grid grid-cols-1 gap-6">
+            {/* Logged-in Users */}
+            <div className="h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
+              <h2 className="text-xl font-semibold text-gray-800">👥 Logged-in Users</h2>
+              <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.loggedInUsers}</p>
             </div>
-          
 
-          {/* Conversations List */}
+            {/* Revenue */}
+            <div className="h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
+              <h2 className="text-xl font-semibold text-gray-800">💰 Current revenue</h2>
+              <p className="text-2xl text-center pt-5 font-bold text-pink-600">Rs. 1,25,345</p>
+            </div>
+
+            {/* Feedback count */}
+            <div className="h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
+              <h2 className="text-xl font-semibold text-gray-800">📄 No. of Feedbacks</h2>
+              <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.feedbacks?.length ?? 0}</p>
+            </div>
+          </div>
+
+          {/* Conversations */}
           <div className="bg-white p-6 rounded-xl shadow-md col-span-2 w-fit hover:shadow-pink-200">
             <h2 className="text-xl font-semibold mb-4 text-gray-800">💬 Recent Conversations</h2>
             <div className="space-y-4 max-h-96 overflow-y-auto">
-              {data.conversations.length > 0 ? (
+              {data.conversations?.length > 0 ? (
                 data.conversations.map((conv) => (
                   <div key={conv.id} className="p-4 bg-gray-50 rounded-md shadow-sm">
                     <p className="text-sm text-gray-500">{new Date(conv.timestamp).toLocaleString()}</p>
@@ -83,7 +93,25 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
             </div>
           </div>
 
-          {/* Placeholder for future statistics */}
+          {/* Feedbacks */}
+          <div className="bg-white p-6 rounded-xl shadow-md col-span-3 hover:shadow-pink-200">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">📢 User Feedback</h2>
+            <div className="space-y-4 max-h-96 overflow-y-auto">
+              {data.feedbacks?.length > 0 ? (
+                data.feedbacks.map((fb, i) => (
+                  <div key={i} className="p-4 bg-gray-50 rounded-md shadow-sm">
+                    <p className="text-sm text-gray-500">{new Date(fb.createdAt).toLocaleString()}</p>
+                    <p className="font-semibold text-pink-600">{fb.name} (⭐ {fb.rating})</p>
+                    <p className="text-gray-700">{fb.feedback}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-gray-500">No feedback submitted yet.</p>
+              )}
+            </div>
+          </div>
+
+          {/* Placeholder */}
           <div className="bg-white p-6 rounded-xl shadow-md col-span-3 hover:shadow-pink-200">
             <h2 className="text-xl font-semibold text-gray-800">📈 Statistics</h2>
             <p className="text-gray-600">More insights coming soon...</p>
