@@ -52,10 +52,12 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
                     <h2 className="text-xl font-semibold text-gray-800">👥 Logged-in Users</h2>
                     <p className="text-2xl text-center pt-5 font-bold text-pink-600">{data.loggedInUsers}</p>
                 </div>
+                {/* Current revenue */}
                 <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
                     <h2 className="text-xl font-semibold text-gray-800">💰 Current revenue</h2>
                     <p className="text-2xl text-center pt-5 font-bold text-pink-600">Rs. 1,25,345</p>
                 </div>
+                {/* feedbacks */}
                 <div className=" h-40 bg-white p-6 rounded-xl shadow-md hover:shadow-pink-200">
                     <h2 className="text-xl font-semibold text-gray-800">📄 no.of feedbacks</h2>
                     <p className="text-2xl text-center pt-5 font-bold text-pink-600">3</p>
