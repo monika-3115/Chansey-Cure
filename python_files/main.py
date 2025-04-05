@@ -53,4 +53,4 @@ def chatbot_response(input_data: QueryInput):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# uvicorn z:app --reload
+# uvicorn main:app --reload
