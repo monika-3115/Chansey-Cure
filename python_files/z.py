@@ -31,11 +31,15 @@ questions, answers, question_embeddings = load_data()
 class QueryInput(BaseModel):
     question: str
 
+def shorten_answer(answer, max_words=100):
+    words = answer.split()
+    if len(words) > max_words:
+        return ' '.join(words[:max_words]) + '...'
+    return answer
+
 def get_answer(question_text):
     question_embedding = model.encode(question_text, convert_to_tensor=True)
-    
     scores = util.pytorch_cos_sim(question_embedding, question_embeddings.to("cpu"))[0]
-    
     best_match_idx = torch.argmax(scores).item()
     return answers[best_match_idx]
 
@@ -43,10 +47,10 @@ def get_answer(question_text):
 def chatbot_response(input_data: QueryInput):
     try:
         question = input_data.question.lower()
-        answer = get_answer(question)
-        return {"answer": answer}
+        full_answer = get_answer(question)
+        short_answer = shorten_answer(full_answer) 
+        return {"answer": short_answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# run command : uvicorn z:app --reload
-
+# uvicorn z:app --reload

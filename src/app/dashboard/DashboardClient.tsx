@@ -14,7 +14,7 @@ interface Feedback {
   name: string;
   feedback: string;
   rating: number;
-  createdAt: string;
+  created_at: string;
 }
 
 interface DashboardData {
@@ -96,7 +96,8 @@ export default function DashboardClient({ userEmail }: { userEmail: string }) {
               {data.feedbacks?.length > 0 ? (
                 data.feedbacks.map((fb, i) => (
                   <div key={i} className="p-4 bg-gray-50 rounded-md shadow-sm">
-                    <p className="text-sm text-gray-500">{new Date(fb.createdAt).toLocaleString()}</p>
+                    <p className="text-sm text-gray-500">{fb.created_at? new Date(fb.created_at).toLocaleString()
+    : "Unknown date"}</p>
                     <p className="font-semibold text-pink-600">{fb.name} (⭐ {fb.rating})</p>
                     <p className="text-gray-700">{fb.feedback}</p>
                   </div>

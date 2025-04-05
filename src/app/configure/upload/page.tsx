@@ -1,5 +1,4 @@
 import ChatBox from "@/components/ChatBot";
-import WidthWrapper from "@/components/WidthWrapper";
 
 const Page = () => {
     return (
@@ -10,11 +9,3 @@ const Page = () => {
 }
 
 export default Page
-
-// export default function Page() {
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-//       <ChatBox />
-//     </div>
-//   );
-// }
