@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
-// Open SQLite database
 async function openDB() {
   return open({
     filename: "python_files/medical.db",
@@ -26,7 +25,7 @@ export async function GET() {
       feedbacks,
     });
   } catch (error: any) {
-    console.error("🔥 Dashboard API error:", error); // <- log the exact error
+    console.error(" Dashboard API error:", error); 
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
