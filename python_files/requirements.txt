@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sentence-transformers
+spacy
+pydantic
+python-multipart
+aiofiles
+sqlalchemy
+asyncpg
+asyncio
