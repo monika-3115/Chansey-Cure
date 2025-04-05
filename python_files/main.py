@@ -3,6 +3,9 @@ from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer, util
 import sqlite3
 import torch
+import os
+import uvicorn
+
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
@@ -52,5 +55,10 @@ def chatbot_response(input_data: QueryInput):
         return {"answer": short_answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
 
 # uvicorn main:app --reload
